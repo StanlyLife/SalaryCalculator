@@ -5,27 +5,27 @@ let WorkWeeksPerYear = 52;
 let WorkMonthsPerYear = 12;
 
 class Tax {
-    PersonalDeduction = 52450
-    MinimumDeduction = 106750 + this.PersonalDeduction;
-    MunicipalityTax = 2.7;
-    CommuneTax = 12.15;
-    SharedTax = 8.15;
+    PersonalDeduction = 52450 //personfradrag
+    MinimumDeduction = 106750; //Minstefradrag
+    Deductions = this.MinimumDeduction + this.PersonalDeduction; //Minstefradrag + personfradrag
+    SocialTaxLimit = 59650; //Nedre grense for trygde avgift
+    SocialTax = 8.2; //Trygde avgift
     GeneralTax = 22;
-    SalaryTax = 8.2;
-    SocialTaxLimit = 59650;
-    SocialTax = this.SalaryTax;
+    //Trinnskatt
     Bracket1 = 0;
     Bracket2 = 1.7;
     Bracket3 = 4;
     Bracket4 = 13.2;
     Bracket5 = 16.2;
     Bracket6 = 0;
+    //trinnskatt start
     Bracket1Start = 0;
     Bracket2Start = 184800;
     Bracket3Start = 260100;
     Bracket4Start = 651250;
     Bracket5Start = 1021550;
     Bracket6Start = 2000000;
+    //Calculations
     SocialTaxTotal = 0;
     BracketTaxTotal = 0;
     GeneralTaxTotal = 0;
@@ -34,19 +34,15 @@ class Tax {
         this.BracketTaxTotal = 0;
         const result = this.CalculateTax(salary);
         this.CalculateSocialTax(salary);
-        this.CalculateGeneralTax((salary - this.MinimumDeduction));
-        // console.log("Social Tax");
-        // console.log(this.SocialTaxTotal.toFixed() + " -> 53 300");
-        // console.log("Bracket Tax");
-        // console.log(this.BracketTaxTotal.toFixed() + " -> 16 876");
-        // console.log("General Tax");
-        // console.log(this.GeneralTaxTotal.toFixed() + " -> 107 976");
-        // console.log("-----Total tax-----");
+        this.CalculateGeneralTax((salary - this.Deductions));
         this.TaxTotal = (this.GeneralTaxTotal + this.BracketTaxTotal + this.SocialTaxTotal);
-        // console.log(this.TaxTotal);
-        console.log("NETTO FOR --------- " + salary);
-        // console.log((salary / 12).toFixed());
-        console.log(((salary - this.TaxTotal) / 12).toFixed());
+        return {
+            TaxTotal:   Number(this.TaxTotal).toLocaleString("es-ES", {minimumFractionDigits: 2})  ,
+            SocialTax:  Number(this.SocialTaxTotal).toLocaleString("es-ES", {minimumFractionDigits: 2})  ,
+            BracketTax: Number(this.BracketTaxTotal).toLocaleString("es-ES", {minimumFractionDigits: 2})  ,
+            GeneralTax: Number(this.GeneralTaxTotal).toLocaleString("es-ES", {minimumFractionDigits: 2})  ,
+            SalaryAfterTax: Number((salary - this.TaxTotal)).toLocaleString("es-ES", {minimumFractionDigits: 2})
+        }
     }
     CalculateSocialTax(salary){
         const SocialTaxCost = (salary * (1-(this.SocialTax/100)));
@@ -86,6 +82,6 @@ class Salary {
     }
 }
 
-new Tax().GetSalaryAfterTax(650000);
+console.log(new Tax().GetSalaryAfterTax(650000));
 new Tax().GetSalaryAfterTax(750000);
 new Tax().GetSalaryAfterTax(775000);
