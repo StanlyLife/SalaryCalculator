@@ -1,0 +1,72 @@
+body {
+  background-color: whitesmoke;
+  color: #333;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+*:focus {
+  outline: none;
+  border: 2px solid white;
+  -o-border-image: linear-gradient(to right, #30CFD0, #c43ad6) 1;
+     border-image: -webkit-gradient(linear, left top, right top, from(#30CFD0), to(#c43ad6)) 1;
+     border-image: linear-gradient(to right, #30CFD0, #c43ad6) 1;
+}
+
+.text-gradient {
+  background: -webkit-gradient(linear, left top, right top, from(#30CFD0), to(#c43ad6));
+  background: linear-gradient(to right, #30CFD0, #c43ad6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.forms {
+  padding: 50px 10%;
+}
+
+.forms form {
+  margin: 25px 0;
+  padding: 10px 10px;
+  border-radius: 25px;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.055), inset 0 0 9px white;
+          box-shadow: 0 3px 9px rgba(0, 0, 0, 0.055), inset 0 0 9px white;
+}
+
+.forms .form-group {
+  padding: 10px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.forms .form-group label, .forms .form-group input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.forms .form-group input {
+  border-radius: 0px;
+  border: none;
+  border-bottom: 3px solid red;
+  -o-border-image: linear-gradient(to right, #30CFD0, #c43ad6) 1;
+     border-image: -webkit-gradient(linear, left top, right top, from(#30CFD0), to(#c43ad6)) 1;
+     border-image: linear-gradient(to right, #30CFD0, #c43ad6) 1;
+  height: 35px;
+  padding-left: 5px;
+  background-color: rgba(255, 255, 255, 0.096);
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.055), inset 0 0 9px white;
+          box-shadow: 0 3px 9px rgba(0, 0, 0, 0.055), inset 0 0 9px white;
+}
+
+.forms .form-group label {
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+/*# sourceMappingURL=site.css.map */

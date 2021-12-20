@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+    <div class="forms">
+        <h2>Brutto</h2>
+        <form action="" class="PreTax">
+            <div class="form-group">
+                <label for="pre-input-yearly">Yearly</label>
+                <input id="pre-input-yearly" class="dynamic pre" type="number" data-period="yearly" data-value="">
+            </div>
+            <div class="form-group">
+                <label for="pre-input-monthly">Monthly</label>
+                <input id="pre-input-monthly" class="dynamic pre" type="number" data-period="monthly" data-value="">
+            </div>
+            <div class="form-group">
+                <label for="pre-input-weekly">Weekly</label>
+                <input id="pre-input-weekly"  class="dynamic pre" type="number" data-period="weekly" data-value="">
+            </div>
+            <div class="form-group">
+                <label for="pre-input-daily">Daily</label>
+                <input id="pre-input-daily"  class="dynamic pre" type="number" data-period="daily" data-value="">
+            </div>
+            <div class="form-group">
+                <label for="pre-input-hourly">Hourly</label>
+                <input id="pre-input-hourly"  class="dynamic pre" type="number" data-period="hourly" data-value="">
+            </div>
+        </form>
+        <h2>Netto</h2>
+        <form action="" class="PostTax">
+            <div class="form-group">
+                <label for="post-input-yearly">Yearly</label>
+                <input id="post-input-yearly"  class="dynamic post" data-period="yearly" type="number">
+            </div>
+            <div class="form-group">
+                <label for="post-input-monthly">Monthly</label>
+                <input id="post-input-monthly"  class="dynamic post" type="number" data-period="monthly" data-value="">
+            </div>
+            <div class="form-group">
+                <label for="post-input-weekly">Weekly</label>
+                <input id="post-input-weekly"  class="dynamic post" type="number" data-period="weekly" data-value="">
+            </div>
+            <div class="form-group">
+                <label for="post-input-daily">Daily</label>
+                <input id="post-input-daily"  class="dynamic post" type="number" data-period="daily" data-value="">
+            </div>
+            <div class="form-group">
+                <label for="post-input-yearly">Hourly</label>
+                <input id="post-input-hourly"  class="dynamic post" type="number" data-period="hourly" data-value="">
+            </div>
+        </form>
+        <form action="" class="Steps">
+            <div class="form-group">
+                <label for="input-yearly">Inntektsskatt</label>
+                <input id="input-inntektsskatt" class="dynamic tax" type="text" value="22">
+            </div>
+            <div class="form-group">
+                <label for="input-trinn1">Trinn 1</label>
+                <input id="input-trinn1" class="dynamic tax" type="text" value="1,7%" data-value="1.7">
+            </div>
+            <div class="form-group">
+                <label for="input-trinn2">Trinn 2</label>
+                <input id="input-trinn2" class="dynamic tax" type="text" value="4,0%" data-value="4.0">
+            </div>
+            <div class="form-group">
+                <label for="input-trinn4">Trinn 3</label>
+                <input id="input-trinn3" class="dynamic tax" type="text" value="13,2%" data-value="13.2">
+            </div>
+            <div class="form-group">
+                <label for="input-trinn4">Trinn 4</label>
+                <input id="input-trinn4" class="dynamic tax" type="text" value="16,2%" data-value="16.2">
+            </div>
+        </form>
+    </div>
+</body>
+<script src="calc.js"></script>
+</html>
