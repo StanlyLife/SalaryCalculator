@@ -69,7 +69,34 @@ class Tax {
             return salary;
         }
     }
+    GetSalaryBeforeTax(salary){
+        console.log("Salary: " + salary);
+        this.BracketTaxTotal = 0;
+        var bracketTax = this.ReverseBracketTax(salary);
+        console.log("Tax total: "+this.BracketTaxTotal + " - 16.876");
+    }
+    ReverseBracketTax(salary) {
+            if (salary > this.Bracket2Start)  salary =  this.GetBracketTax(salary,"Bracket2")
+            if(salary > this.Bracket3Start)   salary =  this.GetBracketTax(salary,"Bracket3");
+            if(salary > this.Bracket4Start)   salary =  this.GetBracketTax(salary,"Bracket4");
+            if(salary > this.Bracket5Start)   salary =  this.GetBracketTax(salary,"Bracket5");
+            if(salary > this.Bracket6Start)   salary =  this.GetBracketTax(salary,"Bracket6");
+            return this.BracketTaxTotal;
+    }
+    GetBracketTax(salary, bracket){
+        const remainder = salary - this[bracket+"Start"];
+        let bracketTax = (remainder * (100/(100-(this[bracket]))));
+        console.log(bracket + " " + (bracketTax - remainder) );
+        this.BracketTaxTotal += (bracketTax - remainder);
+        salary += (bracketTax - remainder);
+        return salary;
+    }
+    
 }
+
+// const remainder = (yrly - 184800);
+// const preTax = (remainder * (100/(100-(tax.trinn1 +tax.inntektsskatt))))
+
 
 class Salary {
     yearly = 0;
@@ -82,6 +109,5 @@ class Salary {
     }
 }
 
-console.log(new Tax().GetSalaryAfterTax(650000));
-new Tax().GetSalaryAfterTax(750000);
-new Tax().GetSalaryAfterTax(775000);
+// console.log(new Tax().GetSalaryAfterTax(650000));
+new Tax().GetSalaryBeforeTax(471847);
